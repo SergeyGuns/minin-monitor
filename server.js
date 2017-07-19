@@ -1,6 +1,15 @@
 const io = require('socket.io')();
 const http = require('http')
 let timeuotTime = 5000;
+var express = require('express');
+var app = express();
+
+app.use('/static', express.static(__dirname + '/build'));
+
+app.listen(80, function () {
+  console.log('Example app listening on port 80!');
+});
+
 
 let JSONFromFlypool = {};
 let timer;

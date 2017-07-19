@@ -15,5 +15,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "serv": "serve -s build && node server.js"
+  },
+  "devDependencies": {
+    "express": "^4.15.3"
   }
 }
