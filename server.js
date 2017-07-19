@@ -1,6 +1,6 @@
 const io = require('socket.io')();
 const http = require('http')
-let timeuotTime = 5000;
+var timeuotTime = 5000;
 var express = require('express');
 var app = express();
 
@@ -18,7 +18,7 @@ io.on('connection', (client) => {
   clearInterval(timer)
   client.emit('sendJson' , JSONFromFlypool)
 
-  let customAddres = null
+  var customAddres = null
   timer = setInterval(
     ()=> {
       console.log('sendJson')
