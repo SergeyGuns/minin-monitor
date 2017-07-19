@@ -10,7 +10,6 @@ class App extends Component {
     //   timestamp
     // }));
     subscribeRequestJson((err, data) => {
-      console.log(data,err)
       this.setState({
         data : data
       }) 
@@ -21,7 +20,7 @@ class App extends Component {
   };
 
   render() {
-    let { hashRate, avgHashrate, usdPerMin, workers } = this.state.data
+    let { avgHashrate, usdPerMin, workers } = this.state.data
     return (
       <div className="App">
         <div key={Date.now()} className='hrate'>
@@ -45,10 +44,9 @@ function OnLineRigs ({workers}) {
   let countHashRate = 0;
   return <div className='rigs'>
       Капают :
-      {Object.keys(workers).map((el,index)=>{
+      {Object.keys(workers).map(function(el,index){
 
         let timeDiff = Date.now()/1000 - workers[el].workerLastSubmitTime
-        console.log(el,timeDiff, workers[el].workerLastSubmitTime)
         if(timeDiff < 500) {
           countHashRate += parseInt(workers[el].hashrate)
           return <div key={index}>{` ${el} : ${workers[el].hashrate} `}</div>
