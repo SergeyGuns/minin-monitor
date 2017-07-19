@@ -1,6 +1,6 @@
 const io = require('socket.io')();
 const http = require('http')
-
+let timeuotTime = 5000;
 
 let JSONFromFlypool = {};
 let timer;
@@ -18,7 +18,7 @@ io.on('connection', (client) => {
         ,(data)=>client.emit('sendJson' , data)
       )
     }
-  , 5000)
+  , timeuotTime)
 
 });
 
@@ -63,12 +63,14 @@ function getJson(url , cb) {
     res.on('end', () => {
       try {
         const parsedData = JSON.parse(rawData);
-        // console.log(parsedData);
+        console.log(timeuotTime);
         if( rawData !== JSON.stringify(JSONFromFlypool) ) {
-          cb(parsedData) 
+          cb(parsedData)
+          timeuotTime -= 100
           JSONFromFlypool = parsedData
         } else {
           console.log('no diff')
+          timeuotTime += 100
           return ;
         }
       } catch (e) {

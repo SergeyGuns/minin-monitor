@@ -53,6 +53,6 @@ function OnLineRigs ({workers}) {
         }
       })}
       <hr/>
-      COUNT : { countHashRate }H/s
+      Суммарный : { countHashRate }H/s
     </div>
 }
