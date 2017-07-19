@@ -40,7 +40,7 @@ io.on('disconnect', ()=>{
 })
 
 
-const port = 81;
+const port = 80;
 io.listen(port)
 console.log('listen port ',port)
 

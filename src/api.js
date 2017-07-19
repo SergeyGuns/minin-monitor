@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-const  socket = openSocket(':81');
+const  socket = openSocket(':80');
 
 
 function subscribeRequestJson( cb, url ) {
