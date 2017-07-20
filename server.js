@@ -1,12 +1,12 @@
 const io = require('socket.io')();
 const http = require('http')
-var timeuotTime = 5000;
-var express = require('express');
-var app = express();
-
+const express = require('express');
+const app = express();
+let timeuotTime = 5000;
+const PORT = 80
 app.use('/', express.static(__dirname + '/build'));
 
-app.listen(80, function () {
+app.listen(PORT, function () {
   console.log('Example app listening on port 80!');
 });
 
@@ -18,7 +18,7 @@ io.on('connection', (client) => {
   clearInterval(timer)
   client.emit('sendJson' , JSONFromFlypool)
 
-  var customAddres = null
+  let customAddres = null
   timer = setInterval(
     ()=> {
       console.log('sendJson')
@@ -40,9 +40,9 @@ io.on('disconnect', ()=>{
 })
 
 
-const port = 80;
-io.listen(port)
-console.log('listen port ',port)
+
+io.listen(PORT)
+console.log('listen port ',PORT)
 
 
 function getJson(url , cb) {

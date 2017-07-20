@@ -30,7 +30,7 @@ class App extends Component {
           <hr/>
           USD в день (24h) : {(usdPerMin*60*24).toFixed(2)}$
           <hr/>
-          {workers !== undefined && <OnLineRigs workers={workers} />}
+          <OnLineRigs workers={workers} />
         </div>
       </div>
     );
