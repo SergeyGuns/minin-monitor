@@ -43,8 +43,8 @@ io.on('disconnect', ()=>{
 
 
 
-io.listen(PORT)
-console.log('listen port ',PORT)
+io.listen(PORT+1)
+console.log('listen port ',PORT+1)
 
 
 function getJson(url , cb) {
