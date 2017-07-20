@@ -76,7 +76,7 @@ function getJson(url , cb) {
         parsedData.timeuotTime = timeuotTime
         if( rawData !== JSON.stringify(JSONFromFlypool) ) {
           cb(parsedData)
-          timeuotTime -= 100
+          timeuotTime > 15000 ? timeuotTime -= 100 : null;
           JSONFromFlypool = parsedData
         } else {
           timeuotTime += 100
