@@ -1,13 +1,15 @@
 const io = require('socket.io')();
 const http = require('http')
 const express = require('express');
+const PORT = require('./src/settings.json').port
+
 const app = express();
 let timeuotTime = 5000;
-const PORT = 80
+
 app.use('/', express.static(__dirname + '/build'));
 
 app.listen(PORT, function () {
-  console.log('Example app listening on port 80!');
+  console.log(`Example app listening on port ${PORT}!`);
 });
 
 
@@ -72,13 +74,12 @@ function getJson(url , cb) {
     res.on('end', () => {
       try {
         const parsedData = JSON.parse(rawData);
-        console.log(timeuotTime);
+        parsedData.timeuotTime = timeuotTime
         if( rawData !== JSON.stringify(JSONFromFlypool) ) {
           cb(parsedData)
           timeuotTime -= 100
           JSONFromFlypool = parsedData
         } else {
-          console.log('no diff')
           timeuotTime += 100
           return ;
         }

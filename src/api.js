@@ -1,5 +1,6 @@
 import openSocket from 'socket.io-client';
-const  socket = openSocket(':80');
+import { port } from './settings.json'
+const  socket = openSocket(`:${port}`);
 
 
 function subscribeRequestJson( cb, url ) {
