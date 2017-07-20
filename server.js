@@ -4,7 +4,7 @@ const express = require('express');
 const PORT = require('./src/settings.json').port
 
 const app = express();
-let timeuotTime = 5000;
+let timeuotTime = 15000;
 
 app.use('/', express.static(__dirname + '/build'));
 
