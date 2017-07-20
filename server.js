@@ -23,7 +23,6 @@ io.on('connection', (client) => {
   let customAddres = null
   timer = setInterval(
     ()=> {
-      console.log('sendJson')
       getJson(
         'http://zcash.flypool.org/api/miner_new/t1ND65g6W7Bq3eMUb3CZkGmdZfccEp2xjPt'
         ,(data)=>client.emit('sendJson' , data)
